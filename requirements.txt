@@ -1,37 +1,32 @@
-Package          Version 
----------------- --------
-asn1crypto       0.24.0  
-backcall         0.1.0   
-certifi          2019.3.9
-cffi             1.11.5  
-cryptography     2.5     
-decorator        4.3.2   
-idna             2.8     
-ipykernel        5.1.0   
-ipython          7.2.0   
-ipython-genutils 0.2.0   
-jedi             0.13.2  
-jupyter-client   5.2.4   
-jupyter-core     4.4.0   
-nltk             3.4     
-parso            0.3.4   
-pexpect          4.6.0   
-pickleshare      0.7.5   
-pip              19.0.1  
-prompt-toolkit   2.0.8   
-ptyprocess       0.6.0   
-pycparser        2.19    
-Pygments         2.3.1   
-pyOpenSSL        19.0.0  
-PySocks          1.6.8   
-python-dateutil  2.8.0   
-pyzmq            17.1.2  
-selenium         3.141.0 
-setuptools       40.7.3  
-simplejson       3.16.0  
-six              1.12.0  
-tornado          5.1.1   
-traitlets        4.3.2   
-urllib3          1.24.1  
-wcwidth          0.1.7   
-wheel            0.32.3  
+asn1crypto==0.24.0
+backcall==0.1.0
+certifi==2019.3.9
+cffi==1.11.5
+cryptography==2.5
+decorator==4.3.2
+idna==2.8
+ipykernel==5.1.0
+ipython==7.2.0
+ipython-genutils==0.2.0
+jedi==0.13.2
+jupyter-client==5.2.4
+jupyter-core==4.4.0
+nltk==3.4
+parso==0.3.4
+pexpect==4.6.0
+pickleshare==0.7.5
+prompt-toolkit==2.0.8
+ptyprocess==0.6.0
+pycparser==2.19
+Pygments==2.3.1
+pyOpenSSL==19.0.0
+PySocks==1.6.8
+python-dateutil==2.8.0
+pyzmq==17.1.2
+selenium==3.141.0
+simplejson==3.16.0
+six==1.12.0
+tornado==5.1.1
+traitlets==4.3.2
+urllib3==1.24.1
+wcwidth==0.1.7
