@@ -24,7 +24,7 @@ class Crawler_play_store():
 		#options = Options()
 		#options.headless = True
 		options = webdriver.ChromeOptions()
-		options.add_argument('headless')
+		#options.add_argument('headless')
 		options.add_argument("--lang=pt-BR")
 		options.add_argument('window-size=1200x800')
 		self.driver = webdriver.Chrome(options=options)
@@ -86,8 +86,8 @@ class Handle_Comments():
 		texto = self.extract_text(div_comment)
 		if texto.strip() == '':
 			return (False, None)
-		link_comment = self.extract_link(div_comment)
-		opiniao = Opinion(id, autor , app, data, estrelas, texto, likes, 0, link=link_comment)
+		#link_comment = self.extract_link(div_comment)
+		opiniao = Opinion(id, autor , app, data, estrelas, texto, likes, 0)
 		return (True, opiniao)
 
 	'''
@@ -95,7 +95,9 @@ class Handle_Comments():
 	'''
 	def extract_link(self, elemento):
 		# Clicar em Mais opções
-		elemento.find_element_by_xpath(".//div[@aria-label='Mais opções']").click()
+		ActionChains(self.driver).move_to_element(elemento).perform()
+		botao = elemento.find_element_by_xpath(".//div[@aria-label='Mais opções']")
+		botao.click()
 		# Clicar em Link para esta análise
 		menu = self.driver.find_element_by_xpath("//*[@id='yDmH0d']/div[@class='JPdR6b CblTmf qjTEB']/div/div/content[@aria-label='Link para esta análise']/div[2]/div")
 		time.sleep(1)
