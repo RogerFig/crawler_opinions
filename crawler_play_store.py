@@ -24,14 +24,15 @@ class Crawler_play_store():
 		#options = Options()
 		#options.headless = True
 		options = webdriver.ChromeOptions()
-		#options.add_argument('headless')
+		options.add_argument('headless')
 		options.add_argument("--lang=pt-BR")
 		options.add_argument('window-size=1200x800')
+		options.binary_location = "/home/rogerio/Applications/chrome-linux/chrome"
 		self.driver = webdriver.Chrome(options=options)
 		#self.driver = webdriver.Firefox(options=options)
 
-	def main(self):
-		id_app = "com.whatsapp"
+	def main(self, id_app):
+		#id_app = "com.whatsapp"
 		link_play = "https://play.google.com/store/apps/details?id={}&showAllReviews=true"
 		self.driver.get(link_play.format(id_app))
 		self.driver.implicitly_wait(5)
@@ -139,8 +140,32 @@ class Handle_Comments():
 			return True
 		else:
 			return False
-
+'''
+ok com.playgendary.tom
+ok com.colorup.game
+ok com.alibaba.aliexpresshd
+ok com.hyperspeed.rocketclean.pro
+ok br.com.gabba.Caixa
+ok com.google.android.apps.youtube.music
+ok com.spotify.music
+ok com.schibsted.bomnegocio.androidApp
+ok br.com.brainweb.ifood
+ok com.snapchat.android
+ok com.nu.production
+ok com.luizalabs.mlapp
+ok play.tube.playtube.videotube.musictube.tubevideo
+ok com.pinterest
+ok com.bradesco
+ok com.duapps.recorder
+'''
 if __name__ == '__main__':
-	crawler = Crawler_play_store()
-	crawler.main()
-	crawler.driver.close()
+	lista = ['com.mercadolibre', 'com.taxis99','com.playgendary.tom','com.colorup.game']
+	#lista = ['com.alibaba.aliexpresshd', 'com.hyperspeed.rocketclean.pro','br.com.gabba.Caixa','com.google.android.apps.youtube.music']
+	#lista = ['com.spotify.music', 'com.schibsted.bomnegocio.androidApp','br.com.brainweb.ifood','com.snapchat.android']
+	#lista = ['com.nu.production', 'com.luizalabs.mlapp','play.tube.playtube.videotube.musictube.tubevideo']
+	#lista = ['com.bradesco', 'com.duapps.recorder','com.pinterest']
+	for app in lista:
+		print(app)
+		crawler = Crawler_play_store()
+		crawler.main(app)
+		crawler.driver.close()
