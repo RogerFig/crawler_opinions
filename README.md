@@ -1,6 +1,6 @@
 # crawler_opinions
 Crawler
-
+ChromeDriver: http://chromedriver.chromium.org/home
 Add chromedriver em /usr/local/bin/
 
 download the chromium on: https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html?prefix=Linux_x64/625894/
