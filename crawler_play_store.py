@@ -8,7 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException, WebDriverException
 from selenium.webdriver.common.action_chains import ActionChains
 
-from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.chrome.options import Options
 from opinion import Opinion
 
 '''
@@ -27,7 +27,7 @@ class Crawler_play_store():
 		options.add_argument('headless')
 		options.add_argument("--lang=pt-BR")
 		options.add_argument('window-size=1200x800')
-		options.binary_location = "/home/rogerio/Applications/chrome-linux/chrome"
+		#options.binary_location = "/home/rogerio/Applications/chrome-linux/chrome"
 		self.driver = webdriver.Chrome(options=options)
 		#self.driver = webdriver.Firefox(options=options)
 
@@ -43,6 +43,8 @@ class Crawler_play_store():
 		while validos <= 5001:
 			divs_comments = self.driver.find_elements_by_xpath("//div[@jsmodel = 'y8Aajc']")
 			total = len(divs_comments)
+			if total == inicial:
+				break
 			for i in range(inicial, total):
 				valido, opiniao = hc.handle(i, id_app, divs_comments[i], self.driver)
 				if valido:
@@ -140,30 +142,10 @@ class Handle_Comments():
 			return True
 		else:
 			return False
-'''
-ok com.playgendary.tom
-ok com.colorup.game
-ok com.alibaba.aliexpresshd
-ok com.hyperspeed.rocketclean.pro
-ok br.com.gabba.Caixa
-ok com.google.android.apps.youtube.music
-ok com.spotify.music
-ok com.schibsted.bomnegocio.androidApp
-ok br.com.brainweb.ifood
-ok com.snapchat.android
-ok com.nu.production
-ok com.luizalabs.mlapp
-ok play.tube.playtube.videotube.musictube.tubevideo
-ok com.pinterest
-ok com.bradesco
-ok com.duapps.recorder
-'''
+
 if __name__ == '__main__':
-	lista = ['com.mercadolibre', 'com.taxis99','com.playgendary.tom','com.colorup.game']
-	#lista = ['com.alibaba.aliexpresshd', 'com.hyperspeed.rocketclean.pro','br.com.gabba.Caixa','com.google.android.apps.youtube.music']
-	#lista = ['com.spotify.music', 'com.schibsted.bomnegocio.androidApp','br.com.brainweb.ifood','com.snapchat.android']
-	#lista = ['com.nu.production', 'com.luizalabs.mlapp','play.tube.playtube.videotube.musictube.tubevideo']
-	#lista = ['com.bradesco', 'com.duapps.recorder','com.pinterest']
+	#lista = ['com.b2w.americanas']
+	lista = ['com.twitter.android']
 	for app in lista:
 		print(app)
 		crawler = Crawler_play_store()
