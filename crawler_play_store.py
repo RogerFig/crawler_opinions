@@ -45,6 +45,7 @@ class Crawler_play_store():
 			total = len(divs_comments)
 			if total == inicial:
 				break
+			self.driver.implicitly_wait(0.5)
 			for i in range(inicial, total):
 				valido, opiniao = hc.handle(i, id_app, divs_comments[i], self.driver)
 				if valido:
@@ -53,7 +54,8 @@ class Crawler_play_store():
 					output.write(opiniao.to_json())
 					output.close()
 				cont+=1
-			print("Válidos: " + str(validos) + "; Total: " + str(cont))
+			self.driver.implicitly_wait(5)
+			#print("Válidos: " + str(validos) + "; Total: " + str(cont))
 			inicial = total
 			self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 			time.sleep(1)
@@ -145,7 +147,7 @@ class Handle_Comments():
 
 if __name__ == '__main__':
 	#lista = ['com.b2w.americanas']
-	lista = ['com.twitter.android']
+	lista = ['com.UCMobile.intl']
 	for app in lista:
 		print(app)
 		crawler = Crawler_play_store()
