@@ -1,5 +1,7 @@
 from selenium import webdriver
 import time
+import os
+from urllib import request
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.by import By
@@ -44,7 +46,7 @@ class Crawler_play_store():
 			divs_comments = self.driver.find_elements_by_xpath("//div[@jsmodel = 'y8Aajc']")
 			total = len(divs_comments)
 			if total == inicial:
-				break
+				return validos
 			self.driver.implicitly_wait(0.5)
 			for i in range(inicial, total):
 				valido, opiniao = hc.handle(i, id_app, divs_comments[i], self.driver)
@@ -64,6 +66,7 @@ class Crawler_play_store():
 				self.driver.find_element_by_class_name("PFAhAf").click()
 			except NoSuchElementException:
 				continue
+		return validos
 
 	def close(self):
 		self.driver.close()
@@ -146,10 +149,18 @@ class Handle_Comments():
 			return False
 
 if __name__ == '__main__':
-	#lista = ['com.b2w.americanas']
-	lista = ['com.UCMobile.intl']
-	for app in lista:
+	#lista = ['jp.ddo.hotmist.unicodepad','llc.vizertv']
+	#lista = ['br.com.sbt.app','com.adorocinema.android']
+	#lista = ['com.imdb.mobile','br.com.telecineplay.android']
+	app = request.urlopen('https://core-crawler.herokuapp.com/').read().decode()
+	while app != 'FIM':
 		print(app)
+		os.mkdir('reviews/'+app)
 		crawler = Crawler_play_store()
-		crawler.main(app)
+		inicio = time.time()
+		total = crawler.main(app)
+		request.urlopen('https://core-crawler.herokuapp.com/%s/%d'%(app,total))
+		fim = time.time()
+		print("Tempo Total: " + str(fim-inicio))
 		crawler.driver.close()
+		app = request.urlopen('https://core-crawler.herokuapp.com/').read().decode()
