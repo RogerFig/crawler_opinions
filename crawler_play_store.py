@@ -29,6 +29,8 @@ class Crawler_play_store():
 		options.add_argument('headless')
 		options.add_argument("--lang=pt-BR")
 		options.add_argument('window-size=1200x800')
+		#options.add_argument('--no-sandbox')
+		#options.add_argument('--disable-dev-shm-usage')
 		#options.binary_location = "/home/rogerio/Applications/chrome-linux/chrome"
 		self.driver = webdriver.Chrome(options=options)
 		#self.driver = webdriver.Firefox(options=options)
