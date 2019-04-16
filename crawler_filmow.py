@@ -2,6 +2,7 @@ from selenium import webdriver
 from page_list_movies import Page_list_movies
 from page_movie import Page_movie
 import os
+import sys, getopt
 
 '''
     Até página 1305 são: aprox 3042354 comentários
@@ -68,7 +69,29 @@ class Crawler_filmow():
         self.driver.close()
 
 if __name__ == '__main__':
-    link = "https://filmow.com/filmes-todos/"
-    crawler = Crawler_filmow(link, 1)
+    argv = sys.argv[1:]
+    #print(sys.argv[1:])
+    inicial = ''
+    final = ''
+    try:
+        opts, args = getopt.getopt(argv,"h")
+    except getopt.GetoptError:
+        print('Usage: crawler_filmow.py inicial final')
+        sys.exit(2)
+    for opt, arg in opts:
+        if opt == '-h':
+            print('Usage: crawler_filmow.py inicial final')
+            sys.exit()
+    if len(args) == 2:
+        try:
+            inicial = int(args[0])
+            final = int(args[1])
+        except:
+            print('Usage: crawler_filmow.py inicial final')
+    else:
+            print('Usage: crawler_filmow.py inicial final')
+
+    link = "https://filmow.com/filmes-todos/?pagina=" + str(inicial)
+    crawler = Crawler_filmow(link, final)
     crawler.main()
     crawler.close() 
