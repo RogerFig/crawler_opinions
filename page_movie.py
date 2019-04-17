@@ -64,7 +64,7 @@ class Page_movie():
         review_text = soup.select_one(".comment-text").text
 
         star_tag = soup.select_one(".star-rating")
-        star_rating = re.search('\d(\.\d)?',star_tag['title'])[0] if star_tag else 0
+        star_rating = re.search('\d(\.\d)?',star_tag['title']).group(0) if star_tag else 0
 
         tag_see = soup.select_one('.icon-ok-sign')
         see = 1 if tag_see else 0
