@@ -38,9 +38,11 @@ class Page_movie():
                 self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
                 ActionChains(self.driver).move_to_element(button_load_more).perform()
                 button_load_more.click()
-            except WebDriverException:
+                time.sleep(1)
+            except WebDriverException as web_driver_exception:
                 #Try again...
                 print('trying ...[%s]'%(self.key_movie))
+                print(web_driver_exception)
                 pass
         
     def handle_comment(self, review):
