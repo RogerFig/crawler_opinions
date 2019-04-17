@@ -20,7 +20,7 @@ class Page_list_movies():
         next_page = self.soup.select_one('a#next-page')
         if next_page:
             num_page = int(next_page['href'].split('=')[1])
-            if self.limit and num_page >= self.limit:
+            if self.limit and num_page > self.limit:
                 return None
             else:
                 return 'https://filmow.com'+next_page['href']
