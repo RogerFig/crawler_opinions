@@ -34,7 +34,8 @@ class Crawler_filmow():
             list_movies = page_list_movies.get_list(next)
             for movie in list_movies:
                 # criar pasta do filme
-                os.mkdir('reviews_filmow/'+movie[0])
+                if not os.path.isdir("'reviews_filmow/'+movie[0]"):
+                    os.mkdir('reviews_filmow/'+movie[0])
                 # instancia um page movie para tratar os comentários
                 page_movie = Page_movie(movie[0], self.driver)
                 # get lista de comentários
