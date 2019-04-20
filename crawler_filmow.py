@@ -3,9 +3,10 @@ from page_list_movies import Page_list_movies
 from page_movie import Page_movie
 import os
 import sys, getopt
+import simplejson as json
 
 '''
-    Até página 1305 são: aprox 3042354 comentários
+    Ate página 1305 são: aprox 3042354 comentários
     1305 - 2559: 999294
 '''
 class Crawler_filmow():
@@ -13,8 +14,10 @@ class Crawler_filmow():
     def __init__(self, link, limit=None):
         self.link = link
         self.limit = limit
-        #options = Options()
-        #options.headless = True
+        self.root = 'filmow/'
+        arq_list_movies = open('list_movies.json','r')
+        self.list_movies = json.load(arq_list_movies)
+        arq_list_movies.close()
         options = webdriver.ChromeOptions()
         options.add_argument('headless')
         options.add_argument("--lang=pt-BR")
@@ -24,7 +27,6 @@ class Crawler_filmow():
         #options.add_argument('--disable-dev-shm-usage')
         #options.binary_location = "/home/rogerio/Applications/chrome-linux/chrome"
         self.driver = webdriver.Chrome(options=options)
-        #self.driver = webdriver.Firefox(options=options)
 
     def main(self):
         page_list_movies = Page_list_movies(self.limit)
@@ -32,15 +34,18 @@ class Crawler_filmow():
         next = self.link
         while next:
             list_movies = page_list_movies.get_list(next)
-            for movie in list_movies:
+            for movie_key, movie_link in list_movies:
                 # criar pasta do filme
-                if not os.path.isdir('reviews_filmow/'+movie[0]):
-                    os.mkdir('reviews_filmow/'+movie[0])
+                if os.path.isdir(self.root+movie_key) or movie_key in self.list_movies:
+                    continue
+                else:
+                    print(movie_key)
+                    os.mkdir(self.root+movie_key)
                 # instancia um page movie para tratar os comentários
-                page_movie = Page_movie(movie[0], self.driver)
+                page_movie = Page_movie(movie_key, self.driver, self.root)
                 # get lista de comentários
                 # Salvar todos os comentários
-                page_movie.save_reviews(movie[1])
+                page_movie.save_reviews(movie_link)
                 # Passar para a próxima página
             next = page_list_movies.next()
             if next:
@@ -72,7 +77,7 @@ class Crawler_filmow():
 if __name__ == '__main__':
     argv = sys.argv[1:]
     #print(sys.argv[1:])
-    inicial = ''
+    inicial = 1
     final = ''
     try:
         opts, args = getopt.getopt(argv,"h")

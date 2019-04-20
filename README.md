@@ -99,33 +99,33 @@
 80. com.huya.nimo : 5040
 81. com.psafe.msuite : 5040
 
-82. net.mobigame.zombietsunami
-83. br.com.vivo
-84. com.cine.filmesmoviemaximum
-85. com.recarga.recarga
-86. com.picsart.studio
-87. com.outfit7.mytalkingangelafree
+82. net.mobigame.zombietsunami : 5040
+83. br.com.vivo : 5080
+84. com.cine.filmesmoviemaximum : 5040
+85. com.recarga.recarga : 5040
+86. com.picsart.studio : 5040
+87. com.outfit7.mytalkingangelafree : 5040
 
-88. com.google.android.apps.youtube.mango
-89. com.billiards.city.pool.nation.club
-90. air.com.hypah.io.slither
-91. com.whatsapp.w4b
-92. com.creatorapps
-93. com.king.candycrushsaga
+88. com.google.android.apps.youtube.mango : 5040
+89. com.billiards.city.pool.nation.club : 5040
+90. air.com.hypah.io.slither : 5040
+91. com.whatsapp.w4b : 5040
+92. com.creatorapps : 504
+93. com.king.candycrushsaga : 5040
 
-94. com.cam001.selfie
-95. suamusica.suamusicaapp
-96. com.santander.app
-97. com.br.bebebebr
-98. com.grability.rappi
-99. com.dywx.larkplayer
+94. com.cam001.selfie : 5040
+95. suamusica.suamusicaapp : 5040
+96. com.santander.app : 5040
+97. com.br.bebebebr : 5040
+98. com.grability.rappi : 5040
+99. com.dywx.larkplayer : 5040
 
-100. com.outfit7.mytalkingtomfree
-101. com.health.lab.drink.water.tracker
-102. com.cleanmaster.mguard
-103. com.ticno.olymptrade
-104. com.firsttouchgames.dls3
-105. com.etermax.preguntados.lite
+100. com.outfit7.mytalkingtomfree : 5040
+101. com.health.lab.drink.water.tracker : 5040
+102. com.cleanmaster.mguard : 5040
+103. com.ticno.olymptrade : 5040
+104. com.firsttouchgames.dls3 : 5040
+105. com.etermax.preguntados.lite : 5040
 
 106. com.riseup.game : 5040
 107. de.motain.iliga : 5040
@@ -166,73 +166,73 @@
 140. com.imdb.mobile : 3892
 141. br.com.telecineplay.android : 5040
 
-142. com.globo.gshow.app
-143. radiotime.player
-144. tunein.player
-145. com.r7.rederecord
-146. com.scribd.app.reader0
-147. br.com.vagalume.android
-148. com.studiosol.player.letras
-149. br.com.kboing.playlists
-150. wp.wattpad
-151. br.com.band.guiatv
-152. com.google.android.apps.books
-153. com.amazon.kindle
-154. com.google.android.apps.magazines
-155. com.bambuna.podcastaddict
-156. flipboard.app
-157. com.devhd.feedly
-158. com.ideashower.readitlater.pro
-159. com.medium.reader
-160. com.ted.android
-161. com.curiosity.dailycuriosity
-162. com.piriform.ccleaner
-163. com.duckduckgo.mobile.android
-164. com.kimcy929.screenrecorder
-165. com.overlook.android.fing
-166. com.cloudflare.onedotonedotonedotone
-167. com.cryok.larva
-168. br.gov.sinesp.cidadao.android
-169. com.asus.filemanager
-170. br.com.anatel.consumidor
-171. com.socialnmobile.dictapps.notepad.color.note
-172. com.intsig.camscanner
-173. com.mv.notas
-174. com.trello
-175. com.pushbullet.android
-176. com.todoist
-177. com.steadfastinnovation.android.projectpapyrus
-178. com.mufumbo.android.recipe.search
-179. com.ninefolders.hd3
-180. com.dropbox.android
-181. com.google.android.calendar
-182. com.evernote
-183. com.google.android.keep
-184. com.wunderkinder.wunderlistandroid
-185. com.fusionmedia.investing
-186. com.droid4you.application.wallet
-187. com.mercadopago.wallet
-188. com.credicard.app
-189. br.com.original.bank
-190. br.com.uol.ps.myaccount
-191. br.com.getninjas.pro
-192. com.google.android.street
-193. com.google.android.apps.maps
-194. com.tippingcanoe.pelando
-195. com.amazon.mShop.android.shopping
-196. com.banggood.client
-197. com.artech.eaplic.havan
-198. com.privalia.privalia
-199. br.com.mobits.peixeurbano
-200. jp.naver.line.android
-201. co.vine.android
-202. com.myyearbook.m
-203. com.twoo
-204. com.tumblr
-205. com.foursquare.robin
-206. com.espn.score_center
-207. br.com.golmobile.placaruol
-208. com.globo.ge.app
-209. com.handmark.sportcaster
-210. com.life360.android.safetymapd
-211. com.leo.appmaster
+142. com.globo.gshow.app : 5038
+143. radiotime.player : 2364
+144. tunein.player : 5039
+145. com.r7.rederecord : 5039
+146. com.scribd.app.reader0 : 5037
+147. br.com.vagalume.android : 5039
+148. com.studiosol.player.letras : 5040
+149. br.com.kboing.playlists : 5039
+150. wp.wattpad : 5040
+151. br.com.band.guiatv : 5040
+152. com.google.android.apps.books : 5026
+153. com.amazon.kindle : 5038
+154. com.google.android.apps.magazines : 5040
+155. com.bambuna.podcastaddict : 5040
+156. flipboard.app : 5039
+157. com.devhd.feedly : 4641
+158. com.ideashower.readitlater.pro : 4269
+159. com.medium.reader : 1342
+160. com.ted.android : 2316
+161. com.curiosity.dailycuriosity : 304
+162. com.piriform.ccleaner : 5040
+163. com.duckduckgo.mobile.android : 1061
+164. com.kimcy929.screenrecorder : 2832
+165. com.overlook.android.fing : 5040
+166. com.cloudflare.onedotonedotonedotone : 729
+167. com.cryok.larva : 3791
+168. br.gov.sinesp.cidadao.android ; 5039
+169. com.asus.filemanager : 5039
+170. br.com.anatel.consumidor : 3441
+171. com.socialnmobile.dictapps.notepad.color.note : 5040
+172. com.intsig.camscanner : 5040
+173. com.mv.notas : 5040
+174. com.trello : 2751
+175. com.pushbullet.android : 2323
+176. com.todoist : 5009
+177. com.steadfastinnovation.android.projectpapyrus : 1032
+178. com.mufumbo.android.recipe.search : 193
+179. com.ninefolders.hd3 : 314
+180. com.dropbox.android : 5039
+181. com.google.android.calendar : 5039
+182. com.evernote : 5037
+183. com.google.android.keep : 5039
+184. com.wunderkinder.wunderlistandroid : 5040
+185. com.fusionmedia.investing : 5040
+186. com.droid4you.application.wallet : 1590
+187. com.mercadopago.wallet : 5040
+188. com.credicard.app : 5040
+189. br.com.original.bank : 5040
+190. br.com.uol.ps.myaccount : 5040
+191. br.com.getninjas.pro : 1400
+192. com.google.android.street : 5033
+193. com.google.android.apps.maps : 5040
+194. com.tippingcanoe.pelando : 5040
+195. com.amazon.mShop.android.shopping : 4833
+196. com.banggood.client : 5040
+197. com.artech.eaplic.havan : 5040
+198. com.privalia.privalia : 5040
+199. br.com.mobits.peixeurbano : 5040
+200. jp.naver.line.android : 5036
+201. co.vine.android : 5034
+202. com.myyearbook.m : 5040
+203. com.twoo : 4844
+204. com.tumblr : 5040
+205. com.foursquare.robin : 5038
+206. com.espn.score_center : 1718
+207. br.com.golmobile.placaruol : 5040
+208. com.globo.ge.app : 5040
+209. com.handmark.sportcaster : 169
+210. com.life360.android.safetymapd : 5040
+211. com.leo.appmaster : 5040

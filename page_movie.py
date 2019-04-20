@@ -8,42 +8,66 @@ from opinion import Opinion
 from bs4 import BeautifulSoup
 
 class Page_movie():
-    def __init__(self, key_movie, driver):
+    def __init__(self, key_movie, driver, root):
         self.key_movie = key_movie
         self.driver = driver
+        self.root = root
 
     def save_reviews(self, link):
-        self.driver.get(link)
         self.driver.implicitly_wait(5)
+        self.driver.get(link)
         # gerar a página completa
-        self.generate_full_page()
-        list_reviews = self.driver.find_elements_by_class_name("comments-list-item")
+        list_reviews = self.generate_full_page()
         list_opinions = []
         for review in list_reviews:
             list_opinions.append(self.handle_comment(review))
         
         for opinion in list_opinions:
-            output = open('reviews_filmow/'+ self.key_movie +'/'+opinion.id+'.json','w')
+            output = open(self.root + self.key_movie +'/'+opinion.id+'.json','w')
             output.write(opinion.to_json())
             output.close()
         
     def generate_full_page(self):
+        comments_old = 0
+        comments_new = 0
+        retry = 10
+        list_comments = []
         #generate all list
         while True:
             try:
                 button_load_more = self.driver.find_element_by_class_name("btn-load-comments")
                 if button_load_more.text == "Fim!":
-                    #print("entrou aqui")
-                    return 
+                    return self.driver.find_elements_by_class_name("comments-list-item")
                 self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
                 ActionChains(self.driver).move_to_element(button_load_more).perform()
                 button_load_more.click()
                 time.sleep(1)
+                comments_old = comments_new
+                comments_new = len(self.driver.find_elements_by_class_name("comments-list-item"))
+                if comments_new == comments_old:
+                    retry -= 1
+                    print('trying ...[%s] (%d)'%(self.key_movie, retry))
+                    if retry < 0:
+                        print('Refreshing ... ')
+                        self.driver.refresh()
+                        retry = 10
+                        comments_new = 0
+                        comments_old = 0
             except WebDriverException as web_driver_exception:
                 #Try again...
-                print('trying ...[%s]'%(self.key_movie))
-                print(web_driver_exception)
-                pass
+                if comments_new != comments_old:
+                    comments_old = comments_new
+                    print('trying ...[%s]'%(self.key_movie))
+                elif comments_new == comments_old:
+                    retry -= 1
+                    print('trying ...[%s] (%d)'%(self.key_movie, retry))
+                    if retry < 0:
+                        print('Refreshing ... ')
+                        self.driver.refresh()
+                        retry = 10
+                        comments_new = 0
+                        comments_old = 0
+                #print(web_driver_exception)
         
     def handle_comment(self, review):
         self.driver.implicitly_wait(0)
@@ -58,10 +82,9 @@ class Page_movie():
         now = datetime.now()
         collect_date = now.strftime("%d-%m-%Y %H:%M")
         # remoção de tags spoiler desnecessárias
-        spoiler = soup.select_one(".comment-text").select_one(".spoiler")
-        if spoiler:
-            spoiler = spoiler.p.extract()
-            soup.select_one(".comment-text").select_one(".spoilerHidden").replace_with(spoiler)
+        msg_spoiler = soup.select_one(".comment-text").select(".message")
+        for msg_tag in msg_spoiler:
+            msg_tag.decompose()
         # fim remoção
         review_text = soup.select_one(".comment-text").text
 
